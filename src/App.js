@@ -1,11 +1,12 @@
 
-import MfrData from './api/api';
 import './App.css';
+
+import MrfByCountry from './components/MrfByCountry';
 
 function App() {
   return (
     <div className="App">
-      <MfrData />
+<MrfByCountry/>
     </div>
   );
 }
