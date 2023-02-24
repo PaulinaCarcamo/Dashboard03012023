@@ -10,7 +10,13 @@ const BarChart = () => {
     const fetchApi = async () => {
         const mrfData = await fetchData();
         setMrfData(mrfData);
-        console.log(mrfData);
+        // console.log(mrfData);
+   
+        const findData = mrfData.Results.filter(element => element.Country === "GERMANY");
+        console.log(findData);
+        const findCount = findData.length;
+        console.log(findCount);
+
     };
 
     useEffect(() => {
