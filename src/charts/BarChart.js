@@ -1,55 +1,49 @@
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-import { fetchData } from "../api/api";
+import { fetchData } from "../api/api.js";
+import { chartsDesc } from "../data/chartsDesc.js";
 
 const BarChart = () => {
 
     const [mrfData, setMrfData] = useState([]);
-
-    const [countries, setCountries ] = useState([]);
+    const [names, setNames] = useState([]);
 
     const fetchApi = async () => {
         const mrfData = await fetchData();
         setMrfData(mrfData);
         // console.log(mrfData);
 
-        // const findData = mrfData.Results.filter(element => element.Country === "GERMANY");
-        // // console.log(findData);
-        // const findCount = findData.length;
-        // console.log(findCount);
+        const Names = mrfData.Results
+            .map(dataItem => dataItem.Mfr_CommonName) // get all media types
+            .filter((name, index, array) => array.indexOf(name) === index); // filter out duplicates
+        // console.log(Names);
 
-        const Countries = mrfData.Results
-            .map(dataItem => dataItem.Country) // get all media types
-            .filter((mediaType, index, array) => array.indexOf(mediaType) === index); // filter out duplicates
-
-        const counts = Countries
-            .map(mediaType => ({
-                type: mediaType,
-                count: mrfData.Results.filter(item => item.Country === mediaType).length
-            }));
-
-            setCountries(counts);
-            console.log(counts);
+        const counts = Names
+            .map(name => ({
+                name: name,
+                count: mrfData.Results.filter(item => item.Mfr_CommonName === name).length
+            })).filter((item) => (item.name !== null && item.count > 1));
+        setNames(counts);
+        console.log(counts);
+        //Taking out info, all null values. Showing values more than 1
     };
 
     useEffect(() => {
         fetchApi();
     }, []);
 
-    //   const labels = ["GERMANY", "February", "March", "April", "May", "June"];
-    // const labels = mrfData.Results?.slice(0, 6).map((item) => { return item.Country });
-    const labels = countries.map((item) => item.type)
+    const labels = names.map((item) => item.name)
+    const title = chartsDesc.map((item) => item.title)
 
     const data = {
         labels: labels,
         datasets: [
             {
-                label: "My First dataset",
-                backgroundColor: "rgb(255, 99, 132)",
+                label: title[1],
+                backgroundColor: ["#ADA9BB", "#4774A3", "#7D77AF", "#49959D", "#35A481", "#AC8068", "#6EC37D"],
                 borderColor: "rgb(255, 99, 132)",
-                // data: [10, 5, 2, 20, 30, 45],
-                data: countries.map((item) => item.count)
+                data: names.map((item) => item.count),
             },
         ],
     };

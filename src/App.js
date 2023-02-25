@@ -1,12 +1,18 @@
 
 import './App.css';
+// import MrfCars from './components/MrfCars';
+// import MrfCountries from './components/MrfCountries';
+import MrfTrucks from './components/MrfTrucks';
+// import MrfNames from './components/MrfNames'
 
-import MrfByCountry from './components/MrfByCountry';
 
 function App() {
   return (
     <div className="App">
-<MrfByCountry/>
+      <MrfTrucks/>
+      {/* <MrfCars/>
+      <MrfNames />
+     <MrfCountries/> */}
     </div>
   );
 }

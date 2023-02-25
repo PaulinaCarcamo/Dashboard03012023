@@ -20,6 +20,7 @@ const FetchMrfData = () => {
                 item.VehicleTypes.map((Name) => Name.Name));
             setVehicleName(displayTypesNames)
 
+
         } catch (error) {
             console.error(error);
         }
