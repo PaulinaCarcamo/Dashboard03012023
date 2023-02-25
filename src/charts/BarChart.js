@@ -1,55 +1,73 @@
-import React, { useEffect, useState } from "react";
-import Chart from "chart.js/auto";
-import { Bar } from "react-chartjs-2";
-import { fetchData } from "../api/api.js";
-import { chartsDesc } from "../data/chartsDesc.js";
+import { useEffect, useState } from 'react';
+import Chart from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
+import { fetchData } from '../api/api.js';
+import { chartsDesc } from '../data/chartsDesc.js';
 
 const BarChart = () => {
-
     const [mrfData, setMrfData] = useState([]);
-    const [names, setNames] = useState([]);
+    const [brandNames, setBrandNames] = useState([]);
 
     const fetchApi = async () => {
         const mrfData = await fetchData();
         setMrfData(mrfData);
         // console.log(mrfData);
 
-        const Names = mrfData.Results
-            .map(dataItem => dataItem.Mfr_CommonName) // get all media types
-            .filter((name, index, array) => array.indexOf(name) === index); // filter out duplicates
-        // console.log(Names);
+        //OBTAINING MRF NAMES (BRANDS) AND FILTERING OUT DUPLICATES
+        const brandNames = mrfData.Results
+            .map(item => item.Mfr_CommonName)
+            .filter((name, index, array) => array.indexOf(name) === index);
+        // console.log(brandNames);
 
-        const counts = Names
+        //COUNTING AMOUNT OF STABLISHMENTS (COMPANIES) OWNED BY BRANDS
+        //SHOWING ALL VALUES BIGGER THAN 1 AND SETTING ASIDE NULL VALUES
+        const counts = brandNames
             .map(name => ({
                 name: name,
                 count: mrfData.Results.filter(item => item.Mfr_CommonName === name).length
             })).filter((item) => (item.name !== null && item.count > 1));
-        setNames(counts);
-        console.log(counts);
-        //Taking out info, all null values. Showing values more than 1
+        // console.log(counts);
+        setBrandNames(counts);
     };
-
     useEffect(() => {
         fetchApi();
     }, []);
 
-    const labels = names.map((item) => item.name)
-    const title = chartsDesc.map((item) => item.title)
+    //PASSING DATA TO CHART, MAPPING THROUGH COUNTS OF BRANDNAMES
+    const chartTitle = chartsDesc[1].title
+    const mainLabel = chartsDesc[1].label
+    const desc = chartsDesc[1].desc
+    const allLabels = brandNames.map((item) => item.name)
+    const selectedData = brandNames.map((item) => item.count)
 
     const data = {
-        labels: labels,
+        labels: allLabels,
         datasets: [
             {
-                label: title[1],
+                label: mainLabel,
                 backgroundColor: ["#ADA9BB", "#4774A3", "#7D77AF", "#49959D", "#35A481", "#AC8068", "#6EC37D"],
                 borderColor: "rgb(255, 99, 132)",
-                data: names.map((item) => item.count),
+                data: selectedData,
             },
         ],
     };
+
+    const options = {
+        plugins: {
+            title: {
+                display: true,
+                text: chartTitle,
+            },
+            subtitle: {
+                display: true,
+                text: desc
+            }
+        }
+    };
+
     return (
         <div>
-            <Bar data={data} />
+            <Bar data={data} options={options} />
         </div>
     );
 };

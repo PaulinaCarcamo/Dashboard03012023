@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Chart from "chart.js/auto";
-import { Bar, Line } from "react-chartjs-2";
-import { fetchData } from "../api/api.js";
-import { chartsDesc } from "../data/chartsDesc.js";
+import { useEffect, useState } from 'react';
+import Chart from 'chart.js/auto';
+import { Line } from 'react-chartjs-2';
+import { fetchData } from '../api/api.js';
+import { chartsDesc } from '../data/chartsDesc.js';
 
 const LineChart = () => {
-
     const [mrfData, setMrfData] = useState([]);
     const [vehicleType, setVehicleType] = useState([]);
 
@@ -20,7 +19,6 @@ const LineChart = () => {
             .map((item) => item.VehicleTypes
                 .map((item) => item.Name))
             .map((item) => { return item[0] })
-            //Looking for objects with no id
             .filter((item) => (item !== undefined && item !== 'Incomplete Vehicle'))
         // console.log(nameTypes);
 
@@ -33,7 +31,7 @@ const LineChart = () => {
                 count[element] = 1;
             }
         };
-        console.log(count);
+        // console.log(count);
         setVehicleType(count)
     };
 
@@ -41,26 +39,45 @@ const LineChart = () => {
         fetchApi();
     }, []);
 
-    // const labels = vehicleType
-    const title = chartsDesc.map((item) => item.title)
+    //PASSING DATA TO CHART, VEHICLE TYPE AS SELECTED DATA, LABELS ARE DISPLAY ALL TOGETHER WITH DATA
+    const chartTitle = chartsDesc[2].title
+    const mainLabel = chartsDesc[2].label
+    const desc = chartsDesc[2].desc
+    const selectedData = vehicleType
 
     const data = {
         // labels: labels,
         datasets: [
             {
-                label: title[2],
-                // backgroundColor: ["#ADA9BB", "#4774A3", "#7D77AF", "#49959D", "#35A481", "#AC8068", "#6EC37D"],
-                // borderColor: "rgb(255, 99, 132)",
-                data: vehicleType,
+                label: mainLabel,
+                data: selectedData,
                 fill: true,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
             },
         ],
     };
+
+    const options = {
+        responsive: true,
+        plugins: {
+            // legend: {
+            //     position: 'right',
+            // },
+            title: {
+                display: true,
+                text: chartTitle,
+            },
+            subtitle: {
+                display: true,
+                text: desc
+            }
+        }
+    };
+
     return (
         <div>
-            <Line data={data} />
+            <Line data={data} options={options} />
         </div>
     );
 };

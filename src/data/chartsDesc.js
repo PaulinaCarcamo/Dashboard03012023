@@ -1,18 +1,22 @@
 export const chartsDesc = [
     {
         title: "Manufacturers By Country",
-        desc: "This chart shows amount of manufacturers by country (there is more than one company per brand)."
+        label: "manufacturers",
+        desc: "This chart shows the amount of manufacturers stablished in each of the countries below (there is more than one company per brand).",
     },
     {
-        title: "Manufacturers By Company",
-        desc: "This chart shows the amount of manufacturers (or single companies) per brand."
+        title: "Individual Companies Owned by Brands",
+        label: "companies",
+        desc: "This chart shows the amount of manufacturers (or single companies) owned by the following brands.",
     },
     {
-        title: "Types of cars made by manufacturers",
-        desc: "This chart shows the amount of types of cars made by manufacturers."
+        title: "Types of Vehicles Made by Manufacturers",
+        label: "manufacturers",
+        desc: "This chart shows the amount manufacturers producing the following types of vehicles.",
     },
     {
-        title: "Trucks manufacture",
-        desc: "This chart shows manufacturers which make trucks"
+        title: "Passenger Vehicle Manufacturers",
+        label: "manufacturers",
+        desc: "This chart shows amount of manufacturers producing passenger vehicles in each of the countries below.",
     }
 ]

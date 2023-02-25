@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Chart from "chart.js/auto";
-import { Bar } from "react-chartjs-2";
-import { chartsDesc } from "../data/chartsDesc";
-import { fetchData } from "../api/api";
+import { useEffect, useState } from 'react';
+import Chart from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
+import { chartsDesc } from '../data/chartsDesc.js';
+import { fetchData } from '../api/api.js';
 
 const HBarChart = () => {
     const [mrfData, setMrfData] = useState([]);
     const [trucks, setTrucks] = useState([]);
-    const [countries, setCountries] = useState([]);
 
     const fetchApi = async () => {
         const mrfData = await fetchData();
@@ -67,41 +66,45 @@ const HBarChart = () => {
         fetchApi();
     }, []);
 
-    // const labels = countries
-    const title = chartsDesc[3].title
+    //PASSING DATA TO CHART, SELECTING KEYS AND VALUES TO ADD DATA IN THE CORRESPONDING LABELS
+    const chartTitle = chartsDesc[3].title
+    const mainLabel = chartsDesc[3].label
+    const desc = chartsDesc[3].desc
+    const allLabels = Object.keys(trucks)
+    const selectedData = Object.values(trucks)
+
     const data = {
-        // labels: trucks,
+        labels: allLabels,
         datasets: [
             {
-                label: "My First dataset",
-                backgroundColor: "rgb(255, 99, 132)",
-                borderColor: "rgb(255, 99, 132)",
-                data: trucks,
+                label: mainLabel,
+                backgroundColor: ['#B1A8B9', '#E8D5B5', '#63BAAB'],
+                data: selectedData,
             },
         ],
     };
-    // const options = {
-    //     indexAxis: 'y',
-    //     elements: {
-    //         bar: {
-    //             borderWidth: 2,
-    //         },
-    //     },
-    //     // responsive: true,
-    //     plugins: {
-    //         legend: {
-    //             position: 'right',
-    //         },
-    //         title: {
-    //             display: true,
-    //             text: title,
-    //         },
-    //     },
-    // };
+    //HORIZONTAL CHART SPECIFICATIONS
+    const options = {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: {
+            // legend: {
+            //     position: 'right',
+            // },
+            title: {
+                display: true,
+                text: chartTitle,
+            },
+            subtitle: {
+                display: true,
+                text: desc
+            }
+        }
+    };
 
     return (
         <div>
-            <Bar data={data} />
+            <Bar data={data} options={options} />
         </div>
     );
 };
