@@ -8,7 +8,6 @@ const Footer = () => {
             style={{
                 color: '#5C5C5C'
             }}>
-
             <h2 class="pb-2 border-bottom">Admin Dashboard</h2>
 
             <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
