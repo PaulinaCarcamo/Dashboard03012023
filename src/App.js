@@ -1,12 +1,11 @@
 
+import Dashboard from './views/Dashboard.js';
 import './App.css';
-import Footer from './layout/Footer';
-import Dashboard from './views/Dashboard';
 
 function App() {
   return (
     <div className="App">
-<Dashboard/>
+      <Dashboard />
     </div>
   );
 }

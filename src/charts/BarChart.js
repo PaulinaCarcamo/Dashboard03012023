@@ -3,7 +3,6 @@ import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 import { fetchData } from '../api/api.js';
 import { chartsDesc } from '../data/chartsDesc.js';
-import { Container } from 'react-bootstrap';
 
 //THIS CHART SHOWS AMOUNT OF MRFS STABLISHED IN EACH COUNTRY 
 const BarChart = () => {
@@ -48,7 +47,6 @@ const BarChart = () => {
             {
                 label: mainLabel,
                 backgroundColor: ["#ADA9BB", "#4774A3", "#7D77AF", "#49959D", "#35A481", "#AC8068", "#6EC37D"],
-                borderColor: "rgb(255, 99, 132)",
                 data: selectedData,
             },
         ],

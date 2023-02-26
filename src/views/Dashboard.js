@@ -43,7 +43,7 @@ const Dashboard = () => {
                     {/* CARDS END HERE */}
 
                     {/* CHARTS START HERE */}
-                    <div>
+                    <div style={{ paddingBottom: '40px'}}>
                         <ChartSection />
                     </div>
                     {/* CHARTS END HERE */}

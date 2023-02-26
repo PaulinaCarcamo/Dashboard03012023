@@ -1,6 +1,6 @@
-import { faCircleUser, faDownload, faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Container, Form, Nav, NavItem } from "react-bootstrap";
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Nav, NavItem } from 'react-bootstrap';
 
 const NavButtons = () => {
     return (
@@ -12,30 +12,40 @@ const NavButtons = () => {
             padding: '20px',
             // marginLeft: '35vh',
         }}>
-            <NavItem >
+            <NavItem
+                style={{
+                    display: 'flex',
+                    paddingLeft: '20px',
+                    color: '#5C5C5C',
+                    fontFamily: 'Nunito',
+                    alignItems: 'flex-end',
+                }} >
                 <h2>
-                    DASHBOARD
+                    ENTERPRISE
                 </h2>
             </NavItem>
-
-            {/* <Nav.Item style={{
-display: 'flex'
-}}>
-<Nav.Link href="#"><FontAwesomeIcon icon={faHome} /></Nav.Link>
-<Nav.Link eventKey="#"><FontAwesomeIcon icon={faHome} /></Nav.Link>
-<Nav.Link eventKey="#"><FontAwesomeIcon icon={faHome} /></Nav.Link>
-</Nav.Item> */}
 
             <Nav.Item style={{
                 display: 'flex'
             }}>
-                <Button variant="outline-primary" >
-                    <FontAwesomeIcon icon={faDownload} />
+                <Button
+                    style={{
+                        color: '#5C87DE',
+                        backgroundColor: '#C2F9FF',
+                        fontWeight: 'bolder',
+                        paddingRight: '25px',
+                        paddingLeft: '25px',
+                        paddingTop: '10px',
+                        paddingBottom: '10px',
+                        border: 'none',
+                    }}
+                >
+                    <FontAwesomeIcon icon={faDownload} style={{ marginRight: '5px' }} />
                     GENERATE REPORT</Button>
             </Nav.Item>
         </Nav>
 
     )
-}
+};
 
 export default NavButtons;

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Chart } from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
-import { Container } from 'react-bootstrap';
 import { fetchData } from '../api/api.js';
 import { chartsDesc } from '../data/chartsDesc.js';
 
