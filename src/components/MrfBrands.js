@@ -1,6 +1,6 @@
 import BarChart from "../charts/BarChart.js";
 
-function MrfNames() {
+function MrfBrands() {
     return (
         <div>
             <BarChart />
@@ -8,4 +8,4 @@ function MrfNames() {
     );
 }
 
-export default MrfNames;
+export default MrfBrands;

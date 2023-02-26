@@ -1,9 +1,9 @@
-import LineChart from "../charts/LineChart.js";
+import HBarChart from "../charts/HBarChart.js";
 
 function MrfCars() {
     return (
         <div>
-            <LineChart />
+            <HBarChart />
         </div>
     );
 }

@@ -3,7 +3,9 @@ import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 import { fetchData } from '../api/api.js';
 import { chartsDesc } from '../data/chartsDesc.js';
+import { Container } from 'react-bootstrap';
 
+//THIS CHART SHOWS AMOUNT OF MRFS STABLISHED IN EACH COUNTRY 
 const BarChart = () => {
     const [mrfData, setMrfData] = useState([]);
     const [brandNames, setBrandNames] = useState([]);

@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap';
 import { fetchData } from '../api/api.js';
 import { chartsDesc } from '../data/chartsDesc.js';
 
+//THIS CHART SHOWS AMOUNT OF MRFS BY COUNTRY
 const DoughnutChart = () => {
     const [mrfData, setMrfData] = useState([]);
     const [countries, setCountries] = useState([]);
@@ -71,9 +72,7 @@ const DoughnutChart = () => {
 
     return (
         <div>
-            <Container style={{ maxHeight: '70vh' }}>
                 <Doughnut data={data} options={options} />
-            </Container>
         </div>
     );
 };

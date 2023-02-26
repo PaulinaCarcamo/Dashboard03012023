@@ -3,10 +3,12 @@ import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 import { chartsDesc } from '../data/chartsDesc.js';
 import { fetchData } from '../api/api.js';
+import { Container } from 'react-bootstrap';
 
+//THIS CHART SHOWS AMOUNT OF MRFS PRODUCING PASSENGER CARS
 const HBarChart = () => {
     const [mrfData, setMrfData] = useState([]);
-    const [trucks, setTrucks] = useState([]);
+    const [cars, setCars] = useState([]);
 
     const fetchApi = async () => {
         const mrfData = await fetchData();
@@ -22,9 +24,9 @@ const HBarChart = () => {
         // console.log(vehicles);
 
         //OBJS WITH THE NAME "TRUCK" ARE DISPLAYED ALL TOGETHER WITH THE REST OF DATA
-        const trucks = mrfData.Results.map((item) => item.VehicleTypes
+        const cars = mrfData.Results.map((item) => item.VehicleTypes
             .find((item) => item.Name === "Passenger Car"))
-        // setTrucks(trucks)
+        // setCars(cars)
 
         //TAKING TWO ARRAYS AS ARGUMENT TO RETURN ARRAY OF INDICES OF SECOND ARRAY PRESENT IN THE FIRST ARRAY
         const queries = vehicles;
@@ -37,12 +39,12 @@ const HBarChart = () => {
             });
             return indices;
         };
-        // console.log(findPositions(trucks, queries));   
+        // console.log(findPositions(cars, queries));   
 
         //GETTING COUNTRIES BY INDEX, FIND POSITIONS(TRUCKS AND QUERIES)
         // const index = [0, 3, 28, 32, 38, 39, 49, 51, 54, 55, 56, 58, 77, 78, 82, 86];
         const countries = mrfData.Results.map((item) => item.Country)
-        const index = findPositions(trucks, queries)
+        const index = findPositions(cars, queries)
         const countriesByIndex = index.map(element => countries[element])
             .filter((type, index, array) => array.indexOf(type) === index);
         // console.log(countriesByIndex);
@@ -59,7 +61,7 @@ const HBarChart = () => {
             }
         };
         console.log(trucksCount);
-        setTrucks(trucksCount)
+        setCars(trucksCount)
     };
 
     useEffect(() => {
@@ -70,8 +72,8 @@ const HBarChart = () => {
     const chartTitle = chartsDesc[3].title
     const mainLabel = chartsDesc[3].label
     const desc = chartsDesc[3].desc
-    const allLabels = Object.keys(trucks)
-    const selectedData = Object.values(trucks)
+    const allLabels = Object.keys(cars)
+    const selectedData = Object.values(cars)
 
     const data = {
         labels: allLabels,
