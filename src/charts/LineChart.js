@@ -6,13 +6,12 @@ import { chartsDesc } from '../data/chartsDesc.js';
 
 //THIS CHART SHOWS AMOUNT OF MRFS PRODUCING EACH TYPE OF VEHICLE
 const LineChart = () => {
-    const [mrfData, setMrfData] = useState([]);
+    // const [mrfData, setMrfData] = useState([]);
     const [vehicleType, setVehicleType] = useState([]);
 
     const fetchApi = async () => {
         const mrfData = await fetchData();
-        setMrfData(mrfData);
-        // console.log(mrfData);
+        // setMrfData(mrfData);
 
         //GOING THROUGH VEHICLE TYPES WHICH CONTAINS ARRAY OF OBJS WITH NO ID
         //FILTER TO PUT ASIDE UNDEFINED DATA AND ALL LABELED AS "INCOMPLETE VEHICLE"
@@ -75,6 +74,7 @@ const LineChart = () => {
             }
         }
     };
+    Chart.register();
 
     return (
         <div>

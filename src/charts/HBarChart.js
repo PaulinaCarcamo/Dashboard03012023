@@ -6,13 +6,12 @@ import { fetchData } from '../api/api.js';
 
 //THIS CHART SHOWS AMOUNT OF MRFS PRODUCING PASSENGER CARS
 const HBarChart = () => {
-    const [mrfData, setMrfData] = useState([]);
+    // const [mrfData, setMrfData] = useState([]);
     const [cars, setCars] = useState([]);
 
     const fetchApi = async () => {
         const mrfData = await fetchData();
-        setMrfData(mrfData);
-        // console.log(mrfData);
+        // setMrfData(mrfData);
 
         //VEHICLE TYPES, ARRAY OF OBJ. FINDING OBJS WITH THE NAME: "TRUCK"
         //AFTER OBJS ARE FILTERED, UNDEFINED VALUES ARE NOT INCLUDED
@@ -59,7 +58,7 @@ const HBarChart = () => {
                 trucksCount[element] = 1;
             }
         };
-        console.log(trucksCount);
+        // console.log(trucksCount);
         setCars(trucksCount)
     };
 
@@ -102,6 +101,7 @@ const HBarChart = () => {
             }
         }
     };
+    Chart.register();
 
     return (
         <div>

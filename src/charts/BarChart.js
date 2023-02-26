@@ -6,13 +6,12 @@ import { chartsDesc } from '../data/chartsDesc.js';
 
 //THIS CHART SHOWS AMOUNT OF MRFS STABLISHED IN EACH COUNTRY 
 const BarChart = () => {
-    const [mrfData, setMrfData] = useState([]);
+    // const [mrfData, setMrfData] = useState([]);
     const [brandNames, setBrandNames] = useState([]);
 
     const fetchApi = async () => {
         const mrfData = await fetchData();
-        setMrfData(mrfData);
-        // console.log(mrfData);
+        // setMrfData(mrfData);
 
         //OBTAINING MRF NAMES (BRANDS) AND FILTERING OUT DUPLICATES
         const brandNames = mrfData.Results
@@ -64,6 +63,7 @@ const BarChart = () => {
             }
         }
     };
+    Chart.register();
 
     return (
         <div>

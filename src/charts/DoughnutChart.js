@@ -6,13 +6,12 @@ import { chartsDesc } from '../data/chartsDesc.js';
 
 //THIS CHART SHOWS AMOUNT OF MRFS BY COUNTRY
 const DoughnutChart = () => {
-    const [mrfData, setMrfData] = useState([]);
+    // const [mrfData, setMrfData] = useState([]);
     const [countries, setCountries] = useState([]);
 
     const fetchApi = async () => {
         const mrfData = await fetchData();
-        setMrfData(mrfData);
-        // console.log(mrfData);
+        // setMrfData(mrfData);
 
         //FINDING COUNTRIES, GETTING ALL AND THEN FILTERING DUPLICATES
         const Countries = mrfData.Results
@@ -68,10 +67,11 @@ const DoughnutChart = () => {
             }
         }
     };
+    Chart.register();
 
     return (
         <div>
-                <Doughnut data={data} options={options} />
+            <Doughnut data={data} options={options} />
         </div>
     );
 };

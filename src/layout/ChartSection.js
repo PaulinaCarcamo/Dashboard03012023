@@ -35,21 +35,20 @@ const ChartSection = () => {
                         </Card>
 
                         <Card style={{ height: '100%' }}>
-                            <Card.Body>
-                                <Placeholder as={Card.Title} animation="glow">
-                                    <Placeholder xs={6} />
-                                </Placeholder>
-                                <Placeholder as={Card.Text} animation="glow">
-                                    <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
-                                    <Placeholder xs={6} /> <Placeholder xs={8} />
-                                </Placeholder>
-                                <Placeholder as={Card.Text} animation="glow">
-                                    <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
-                                    <Placeholder xs={6} />
-                                </Placeholder>
+                            <Card.Body style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '15px',
+                                justifyItems: 'center',
+                                justifyContent: 'center',
+                                color: '#D5D5D5'
+                            }}>
+                                <Placeholder xs={6} />
+                                <Placeholder className="w-75" /> <Placeholder className="w-75" />
+                                <Placeholder style={{ width: '35%' }} /> <Placeholder className="w-75" />
+                                <Placeholder style={{ width: '50%' }} /> <Placeholder className="w-75" />
                             </Card.Body>
                         </Card>
-
                     </Col>
                 </Row>
 
