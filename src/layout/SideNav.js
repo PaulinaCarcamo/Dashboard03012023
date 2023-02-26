@@ -1,11 +1,10 @@
 import React from 'react';
-import { faChartColumn, faFaceSmileWink, faFolder, faGear, faRocket, faStar, faStarOfDavid, faTableCells, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faChartColumn, faFaceSmileWink, faFolder, faGear, faRocket, faTableCells, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Card, Container, Nav, NavItem } from 'react-bootstrap';
 
 const SideNav = () => {
     return (
-
         <Container
             style={{
                 display: 'flex',
@@ -101,7 +100,6 @@ const SideNav = () => {
                     </Card.Body>
                 </Card>
             </Nav.Item>
-
         </Container>
     )
 };

@@ -8,9 +8,7 @@ const NavButtons = () => {
         <Nav style={{
             display: 'flex',
             justifyContent: 'space-between',
-            // borderBottom: '3px solid red',
             padding: '20px',
-            // marginLeft: '35vh',
         }}>
             <NavItem
                 style={{
@@ -44,7 +42,6 @@ const NavButtons = () => {
                     GENERATE REPORT</Button>
             </Nav.Item>
         </Nav>
-
     )
 };
 

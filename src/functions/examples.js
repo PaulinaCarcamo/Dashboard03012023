@@ -42,7 +42,7 @@
 // setCompanies(countriesByIndex);
 // // console.log(countriesByIndex);
 
-//--
+//-----------------------------------------------------------------------------------
 
 // const array = trucksByCountry;
 // const demo = {};

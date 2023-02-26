@@ -25,7 +25,7 @@ const Dashboard = () => {
 
                 <div style={{ width: '100%', backgroundColor: '#F5F9FF' }}>
                     {/* SECOND NAV STARTS HERE */}
-                    <div style={{ backgroundColor: '#fff'}}>
+                    <div style={{ backgroundColor: '#fff' }}>
                         <Navbar />
                     </div>
                     {/* SECOND NAV ENDS HERE */}
@@ -43,7 +43,7 @@ const Dashboard = () => {
                     {/* CARDS END HERE */}
 
                     {/* CHARTS START HERE */}
-                    <div style={{ paddingBottom: '40px'}}>
+                    <div style={{ paddingBottom: '40px' }}>
                         <ChartSection />
                     </div>
                     {/* CHARTS END HERE */}
