@@ -45,7 +45,7 @@ const HBarChart = () => {
         const index = findPositions(cars, queries)
         const countriesByIndex = index.map(element => countries[element])
             .filter((type, index, array) => array.indexOf(type) === index);
-        // console.log(countriesByIndex);
+        console.log(countriesByIndex);
 
         //GETTING COUNTRIES WHICH MANUFACTURES TRUCKS
         const trucksByCountry = index.map(element => countries[element])
