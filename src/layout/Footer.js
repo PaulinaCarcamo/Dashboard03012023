@@ -17,7 +17,7 @@ const Footer = () => {
                     </div>
                     <div>
                         <h3 className="fs-2">Components</h3>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                        <p>Customize your dashboard to improve your experience. Set up the language, email, messaging, navigation, workspace structure, and other activities to fit your preferences.</p>
                         <Button style={{
                             paddingRight: '22px',
                             paddingLeft: '22px',
@@ -36,7 +36,7 @@ const Footer = () => {
                     </div>
                     <div>
                         <h3 className="fs-2">Database</h3>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                        <p>Consider encrypting your device. Back up your dashboard data regularly and keep it safe. Prevent from others handing over your private information without permission.</p>
                         <Button style={{
                             paddingRight: '22px',
                             paddingLeft: '22px',
@@ -56,7 +56,7 @@ const Footer = () => {
                     </div>
                     <div>
                         <h3 className="fs-2">Settings</h3>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                        <p>Change dashboard settings and make your own adjustments. Connect and disconnect from your mobile network, enable or disable incoming notifications and messages.</p>
                         <Button style={{
                             paddingRight: '22px',
                             paddingLeft: '22px',
@@ -71,7 +71,6 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-
     )
 };
 

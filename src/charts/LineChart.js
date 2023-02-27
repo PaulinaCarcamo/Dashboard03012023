@@ -46,13 +46,12 @@ const LineChart = () => {
     const selectedData = vehicleType
 
     const data = {
-        // labels: labels,
         datasets: [
             {
                 label: mainLabel,
                 data: selectedData,
                 fill: true,
-                borderColor: 'rgb(75, 192, 192)',
+                borderColor: '#4BC0C0',
                 tension: 0.1
             },
         ],
@@ -61,9 +60,6 @@ const LineChart = () => {
     const options = {
         responsive: true,
         plugins: {
-            // legend: {
-            //     position: 'right',
-            // },
             title: {
                 display: true,
                 text: chartTitle,

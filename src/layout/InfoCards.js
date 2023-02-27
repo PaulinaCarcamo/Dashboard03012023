@@ -1,4 +1,4 @@
-import { faCarSide, faTruck, faTruckMonster } from '@fortawesome/free-solid-svg-icons';
+import { faCarSide, faMotorcycle, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
@@ -56,7 +56,7 @@ const InfoCards = () => {
                                 </Card.Text>
                             </div>
                             <div>
-                                <FontAwesomeIcon icon={faTruckMonster} color="lightgrey" size="3x" />
+                                <FontAwesomeIcon icon={faMotorcycle} color="lightgrey" size="3x" />
                             </div>
                         </Card.Body>
                         <Card.Footer style={{

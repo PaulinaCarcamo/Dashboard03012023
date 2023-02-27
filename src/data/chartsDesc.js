@@ -18,5 +18,10 @@ export const chartsDesc = [
         title: "Passenger Vehicle Manufacturers",
         label: "manufacturers",
         desc: "This chart shows amount of manufacturers producing passenger vehicles in each of the countries below.",
+    },
+    {
+        title: "Truck Manufacturers",
+        label: "manufacturers",
+        desc: "This chart shows amount of manufacturers producing trucks in each of the countries below.",
     }
 ]
