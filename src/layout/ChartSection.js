@@ -1,10 +1,9 @@
 import React from 'react';
-import { Card, Col, Container, Placeholder, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import MrfBrands from '../components/MrfBrands.js';
 import MrfCars from '../components/MrfCars.js';
 import MrfCountries from '../components/MrfCountries.js';
 import MrfTrucks from '../components/MrfTrucks.js';
-import MrfMPV from '../components/MrfTrucks.js';
 import MrfVehicles from '../components/MrfVehicle.js';
 
 const ChartSection = () => {
